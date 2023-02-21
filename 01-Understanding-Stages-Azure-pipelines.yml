@@ -22,7 +22,23 @@ stages:
       - bash: echo $(Build.SourceDirectory)
       - bash: echo $(System.DefaultWorkingDirectory)
       - bash: ls -R $(System.DefaultWorkingDirectory)
-      - bash: echo $(Build.ArtifactStagingDirectory)
+      - bash: echo $(System.DefaultStagingDirectory)
+      - bash: ls -R $(System.DefaultStagingDirectory)
+      - bash: echo 
+      - bash: java -version
+      - bash: node --version
+      - bash: python --version
+      - bash: mvn -version
+      - bash: java -version
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: '$(System.DefaultWorkingDirectory)'
+          Contents: |
+            **/.*yml
+            **/*/tf
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      - bash: ls -R $(System.DefaultStagingDirectory)
+          
 #- stage: QADeploy
 #  dependsOn: DevDeploy 
 #  jobs:
