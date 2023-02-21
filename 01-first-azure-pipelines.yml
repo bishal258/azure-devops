@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-vmImage: ubuntu-latest
+  vmImage: ubuntu-latest
 
 #pipeline can contaon multiple #Stages > Jobs > Tasks(Steps)
 
