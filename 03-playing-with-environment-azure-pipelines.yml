@@ -22,7 +22,7 @@ stages:
     - job: Build
       steps:
       - bash: echo 'do the build'
-- stage: Dev Deploy
+- stage: DevDeploy
   jobs:
     - deployment: DevDeployJob
       environment: Dev
@@ -31,7 +31,7 @@ stages:
           deploy:
             steps:
             - script: echo 'Deploy to Dev'
-- stage: QA Deploy
+- stage: QADeploy
   jobs:
     - deployment: QADeployJob
       environment: QA
