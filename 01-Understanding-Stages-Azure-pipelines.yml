@@ -38,6 +38,11 @@ stages:
             **/*/tf
           TargetFolder: '$(Build.ArtifactStagingDirectory)'
       - bash: ls -R $(System.DefaultStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'bishal'
+          publishLocation: 'Container'
           
 #- stage: QADeploy
 #  dependsOn: DevDeploy 
